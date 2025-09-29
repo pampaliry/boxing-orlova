@@ -1,4 +1,4 @@
-import { c as defineEventHandler, r as readBody, u as useRuntimeConfig } from '../../_/nitro.mjs';
+import { c as defineEventHandler, h as readBody, u as useRuntimeConfig } from '../../_/nitro.mjs';
 import nodemailer from 'nodemailer';
 import 'node:http';
 import 'node:https';

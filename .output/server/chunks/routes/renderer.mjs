@@ -1,5 +1,5 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { g as buildAssetsURL, u as useRuntimeConfig, h as getResponseStatusText, i as getResponseStatus, j as defineRenderHandler, p as publicAssetsURL, k as getQuery, l as createError, m as getRouteRules, n as hasProtocol, o as relative, q as joinURL, b as useNitroApp } from '../_/nitro.mjs';
+import { j as buildAssetsURL, u as useRuntimeConfig, k as getResponseStatusText, l as getResponseStatus, m as defineRenderHandler, p as publicAssetsURL, g as getQuery, n as createError, o as getRouteRules, q as hasProtocol, v as relative, w as joinURL, b as useNitroApp } from '../_/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
@@ -72,7 +72,7 @@ function createHead(options = {}) {
   return head;
 }
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#424242"},{"property":"article:author","content":"Matus Matko"},{"property":"article:published_time","content":"2025-08-16T09:00:00Z"},{"name":"description","content":"Portfólio vývojára: Nuxt 3 + .NET WebSocket demo, reálne nasadenie (PM2, Nginx), PWA, SEO a prístupnosť."},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://mm-smart.eu/"},{"property":"og:title","content":"Matus Matko – Fullstack Developer Portfolio"},{"property":"og:description","content":"Reálne projekty, Nuxt + .NET, vlastný server, live backend – všetko v jednom."},{"property":"og:image","content":"https://mm-smart.eu/social-preview.jpg"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"Matus Matko – Fullstack Developer Portfolio"},{"name":"twitter:description","content":"Reálne projekty, Nuxt + .NET, vlastný server, live backend – všetko v jednom."},{"name":"twitter:image","content":"https://mm-smart.eu/social-preview.jpg"}],"link":[{"rel":"canonical","href":"https://mm-smart.eu/"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"sk"},"title":"Matus Matko – Fullstack Developer Portfolio"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#424242"},{"property":"article:author","content":"Matus Matko"},{"property":"article:published_time","content":"2025-08-16T09:00:00Z"},{"name":"description","content":" Boxing Orlová - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA."},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://mm-smart.eu/"},{"property":"og:title","content":"boxing-orlova.mm-smart.eu - Klub Boxu a MMA"},{"property":"og:description","content":"boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA."},{"property":"og:image","content":"boxing-orlova.mm-smart.eu/social-preview.jpg"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"boxing-orlova.mm-smart.eu - Klub Boxu a MMA"},{"name":"twitter:description","content":"boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA."},{"name":"twitter:image","content":"https://mm-smart.eu/social-preview.jpg"}],"link":[{"rel":"canonical","href":"https://mm-smart.eu/"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"sk"},"title":"Boxing Orlová - Klub Boxu a MMA"};
 
 const appRootTag = "div";
 
@@ -249,7 +249,7 @@ async function renderInlineStyles(usedModules) {
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
-const entryFileName = "DmQMZ5K5.js";
+const entryFileName = "B4mNE7h6.js";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
