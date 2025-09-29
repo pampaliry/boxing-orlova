@@ -1,15 +1,23 @@
+<script setup lang="ts">
+//import { useCms } from '~/composables/useCms'   // ← pridaj
+const { listPosts } = useCms()
+
+const { data: posts, pending, error } = await useAsyncData('posts', () =>
+  listPosts({ limit: 3, depth: 1 })
+)
+</script>
+
 <template>
-  <div>
-
-    <!-- HERO SEKCIA -->
-    <section aria-label="Úvodná prezentácia projektu">
-      <HeroSection />
-    </section>
-
-    <!-- TECH STACK -->
-    <section aria-label="Zoznam použitých technológií">
-      <TechnologyStack />
-    </section>
-
-  </div>
+  <section>
+    <h1>Posledne clanky</h1>
+    <ul v-if="posts?.docs?.length">
+      <li v-for="p in posts.docs" :key="p.id">
+        <NuxtLink :to="`/posts/${p.slug}`">{{ p.title }}</NuxtLink>
+      </li>
+    </ul>
+    <p v-else-if="pending">Nacitavam...</p>
+    <p v-else-if="error">Nastala chyba: {{ error.message }}</p>
+    <p v-else>Nic tu nie je.</p>
+    
+  </section>
 </template>

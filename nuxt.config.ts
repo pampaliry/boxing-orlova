@@ -4,9 +4,14 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineNuxtConfig({
   runtimeConfig: {
+    CMS_API_URL: process.env.NUXT_CMS_API_URL,
+    CMS_READONLY_TOKEN: process.env.NUXT_CMS_READONLY_TOKEN,
+    CMS_MOCK: process.env.NUXT_CMS_MOCK ?? '0',
     public: {
       wsUrl: process.env.NUXT_PUBLIC_WS_URL || '',
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://mm-smart.eu',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
+      CMS_URL: process.env.NUXT_PUBLIC_CMS_URL,
+      CMS_MEDIA: process.env.NUXT_PUBLIC_CMS_MEDIA || '',
     },
     mailUser: process.env.MAIL_USER,
     mailPass: process.env.MAIL_PASS,
@@ -94,7 +99,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'sk' },
-      title: 'Matus Matko – Fullstack Developer Portfolio',
+      title: 'Boxing Orlová - Klub Boxu a MMA',
       link: [{ rel: 'canonical', href: 'https://mm-smart.eu/' }],
       meta: [
         { charset: 'utf-8' },
@@ -106,7 +111,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Portfólio vývojára: Nuxt 3 + .NET WebSocket demo, reálne nasadenie (PM2, Nginx), PWA, SEO a prístupnosť.',
+            ' Boxing Orlová - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
         },
 
         // Open Graph
@@ -114,28 +119,28 @@ export default defineNuxtConfig({
         { property: 'og:url', content: 'https://mm-smart.eu/' },
         {
           property: 'og:title',
-          content: 'Matus Matko – Fullstack Developer Portfolio',
+          content: 'boxing-orlova.mm-smart.eu - Klub Boxu a MMA',
         },
         {
           property: 'og:description',
           content:
-            'Reálne projekty, Nuxt + .NET, vlastný server, live backend – všetko v jednom.',
+            'boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
         },
         {
           property: 'og:image',
-          content: 'https://mm-smart.eu/social-preview.jpg',
+          content: 'boxing-orlova.mm-smart.eu/social-preview.jpg',
         },
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'twitter:title',
-          content: 'Matus Matko – Fullstack Developer Portfolio',
+          content: 'boxing-orlova.mm-smart.eu - Klub Boxu a MMA',
         },
         {
           name: 'twitter:description',
           content:
-            'Reálne projekty, Nuxt + .NET, vlastný server, live backend – všetko v jednom.',
+            'boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
         },
         {
           name: 'twitter:image',
