@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent as defineComponent$1, reactive, watchEffect, toRef, inject as inject$1, computed, toValue, Fragment, getCurrentInstance as getCurrentInstance$1, watch, onScopeDispose, capitalize, warn, ref, shallowRef, useId, provide, h, Suspense, unref, readonly, toRaw, createVNode, mergeProps, createElementVNode, effectScope, shallowReactive, hasInjectionContext, nextTick, createElementBlock, cloneVNode, defineAsyncComponent, normalizeClass, normalizeStyle, createApp, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, isReadonly, isRef, isShallow, isReactive, getCurrentScope, withCtx, toRefs, useSSRContext } from 'vue';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent as defineComponent$1, inject as inject$1, toRef, ref, computed, unref, provide, readonly, reactive, watchEffect, toValue, Fragment, capitalize, hasInjectionContext, shallowRef, watch, useId, warn, h, Suspense, toRaw, getCurrentInstance as getCurrentInstance$1, onScopeDispose, createVNode, mergeProps, createElementVNode, shallowReactive, effectScope, nextTick, createElementBlock, cloneVNode, defineAsyncComponent, normalizeClass, normalizeStyle, createApp, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, isReadonly, isRef, isShallow, isReactive, getCurrentScope, withCtx, toRefs, useSSRContext } from 'vue';
 import Bt from 'node:http';
 import zs from 'node:https';
 import st from 'node:zlib';
@@ -9,7 +9,7 @@ import { format as format$1 } from 'node:url';
 import { isIP } from 'node:net';
 import { promises, statSync, createReadStream } from 'node:fs';
 import { basename } from 'node:path';
-import { l as createError$1, v as klona, w as defuFn, n as hasProtocol, x as isScriptProtocol, q as joinURL, y as withQuery, z as sanitizeStatusCode, A as getContext, B as baseURL, C as createHooks, D as executeAsync, E as withBase, d as destr, F as toRouteMatcher, G as createRouter$1, H as defu } from '../_/nitro.mjs';
+import { x as klona, y as defuFn, n as createError$1, q as hasProtocol, z as isScriptProtocol, w as joinURL, A as withQuery, B as sanitizeStatusCode, C as getContext, D as baseURL, E as createHooks, F as executeAsync, G as withBase, d as destr, H as toRouteMatcher, I as createRouter$1, J as defu } from '../_/nitro.mjs';
 import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
 import { u as useHead$1, h as headSymbol } from '../routes/renderer.mjs';
@@ -2709,7 +2709,7 @@ const mr = Symbol.toStringTag, wi = n$1((i) => typeof i == "object" && typeof i.
       for (const [p, h2] of l) f2.append(p, h2);
       return f2;
     }
-    const { toFormData: a } = await import('./multipart-parser-B3Nul3rh.mjs');
+    const { toFormData: a } = await import('./multipart-parser-B56C9zE7.mjs');
     return a(this.body, o2);
   }
   async blob() {
@@ -4254,17 +4254,22 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-FPURfXby.mjs')
+    component: () => import('./index-DPx9PBRp.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-Wlk0jWoP.mjs')
+    component: () => import('./contact-KFWlTvKs.mjs')
   },
   {
     name: "projects",
     path: "/projects",
-    component: () => import('./projects-wSdWPyPv.mjs')
+    component: () => import('./projects-CVjhDTtT.mjs')
+  },
+  {
+    name: "posts-slug",
+    path: "/posts/:slug()",
+    component: () => import('./_slug_-gsbXmi85.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -4909,7 +4914,7 @@ const revive_payload_server_znTemaqP08K_QJrwTpOQnPBjRlGo0gBWh02C5FsZca8 = /* @__
     }
   }
 });
-const LazyIcon = defineAsyncComponent(() => import('./index-CCV4h8gE.mjs').then((r2) => r2["default"] || r2.default || r2));
+const LazyIcon = defineAsyncComponent(() => import('./index-B7bvYvWj.mjs').then((r2) => r2["default"] || r2.default || r2));
 const lazyGlobalComponents = [
   ["Icon", LazyIcon]
 ];
@@ -9781,7 +9786,7 @@ const plugins = [
   vuetify_hjFy4UiBVKu2U8_BW9ggkFzfvErKr3wFgTHpa6TF5Ds
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-DoSjQgvw.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-BVZG7R72.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent$1({
   name: "LayoutLoader",
@@ -10182,5 +10187,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { asyncDataDefaults as $, includes as A, destructComputed as B, isCssColor as C, isParsableColor as D, EventProp as E, parseColor as F, getForeground as G, getCurrentInstanceName as H, IconValue as I, useTheme as J, useIcon as K, flattenFragments as L, isObject as M, onlyDefinedProps as N, getCurrentInstance as O, PREFERS_REDUCED_MOTION as P, useToggleScope as Q, hasEvent as R, wrapInArray as S, consoleWarn as T, findChildrenWithProvide as U, callEvent as V, standardEasing as W, pick as X, filterInputAttrs as Y, omit as Z, _export_sfc as _, useRouter as a, createError as a0, useAppConfig as a1, getIcon as a2, loadIcon as a3, Icon as a4, br as a5, qn as a6, useLayoutItem as a7, makeLayoutItemProps as a8, consoleError as a9, defineComponent as aa, deprecate as ab, focusChild as ac, isPrimitive as ad, getPropertyFromItem as ae, useLayout as af, defer as ag, VApp as ah, __nuxt_component_1 as ai, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry$1 as default, provideTheme as e, useRender as f, genericComponent as g, makeComponentProps as h, provideDefaults as i, useRtl as j, breakpoints as k, useResizeObserver as l, makeThemeProps as m, navigateTo as n, clamp as o, propsFactory as p, convertToUnit as q, resolveRouteObject as r, makeDisplayProps as s, useDisplay as t, useHead as u, useGoTo as v, focusableChildren as w, deepEqual as x, useLocale as y, useProxiedModel as z };
+export { useGoTo as $, pick as A, filterInputAttrs as B, omit as C, clamp as D, EventProp as E, provideDefaults as F, useResizeObserver as G, breakpoints as H, IconValue as I, includes as J, destructComputed as K, isCssColor as L, isParsableColor as M, parseColor as N, getForeground as O, PREFERS_REDUCED_MOTION as P, deepEqual as Q, findChildrenWithProvide as R, useTheme as S, useIcon as T, flattenFragments as U, hasEvent as V, isObject as W, onlyDefinedProps as X, makeDisplayProps as Y, useDisplay as Z, _export_sfc as _, useRouter as a, focusableChildren as a0, useRoute as a1, useAppConfig as a2, getIcon as a3, loadIcon as a4, Icon as a5, br as a6, qn as a7, useLayoutItem as a8, makeLayoutItemProps as a9, consoleError as aa, defineComponent as ab, deprecate as ac, focusChild as ad, isPrimitive as ae, getPropertyFromItem as af, useLayout as ag, defer as ah, VApp as ai, __nuxt_component_1 as aj, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry$1 as default, asyncDataDefaults as e, createError as f, genericComponent as g, useProxiedModel as h, provideTheme as i, useLocale as j, makeComponentProps as k, consoleWarn as l, makeThemeProps as m, navigateTo as n, useRender as o, propsFactory as p, callEvent as q, resolveRouteObject as r, getCurrentInstanceName as s, useRtl as t, useHead as u, convertToUnit as v, standardEasing as w, wrapInArray as x, getCurrentInstance as y, useToggleScope as z };
 //# sourceMappingURL=server.mjs.map
