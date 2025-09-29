@@ -1,14 +1,15 @@
 # build-to-dist.ps1
-# Nuxt build a deploy skript (portfolio-like flow)
-# - KROK 1: kontrola gitu: staged OK, untracked/unstaged = STOP (vypis git status)
-# - KROK 1: auto-commit staged zdrojov (ISO timestamp) a push na remote
+# Nuxt build a deploy skript (podla nuxt-portfolio logiky)
+# - Krok 1: kontrola gitu: staged OK, untracked/unstaged = STOP (vypis git status)
+# - Auto-commit staged zdrojov s ISO timestampom a push na remote
 # - Build -> .output
-# - .output sa skopiruje do TEMP, na master sa vycisti, prepne sa na dist, nahradi sa .output, git add/commit/push
+# - .output sa skopiruje do TEMP, na source branche sa vycisti, prepneme na dist,
+#   v dist sa vycisti vsetko okrem .git, skopiruje sa .output, git add/commit/push
 # - Navrat na source branch
-# Pozn: odporuca sa mat v .gitignore riadok ".output/"
+# Pozn: odporucam mat v .gitignore riadok ".output/"
 
 param(
-  [string]$SourceBranch = "master",
+  [string]$SourceBranch = "master",  # zmen na "main" ak pouzivas main
   [string]$DistBranch   = "dist",
   [switch]$UseNpm,
   [switch]$SkipEnvCheck
@@ -28,6 +29,10 @@ Write-Host "[INFO] === Nuxt build-to-dist start ==="
 Run "git rev-parse --is-inside-work-tree"
 $currentBranch = (git branch --show-current).Trim()
 if (-not $currentBranch) { throw "[ERR] Not on any branch" }
+if ($currentBranch -ne $SourceBranch) {
+  Write-Host "[INFO] Switching to $SourceBranch..."
+  Run "git checkout $SourceBranch"
+}
 
 # 1) .env kontrola (ak nie je skip)
 if (-not $SkipEnvCheck) {
@@ -66,7 +71,7 @@ if ($hasDirty) {
   exit 1
 }
 
-# 3) AUTO-COMMIT STAGED ZMIEN (ak nieco je staged) + PUSH
+# 3) AUTO-COMMIT STAGED ZMIEN (ak je co) + PUSH
 $staged = (git diff --cached --name-only)
 if ($staged) {
   $ts = Get-Date -Format "yyyy-MM-ddTHH:mm:ssZ"
@@ -98,32 +103,38 @@ if (!(Test-Path ".output")) {
 $tmpOut = Join-Path $env:TEMP "nuxt-output-copy"
 if (Test-Path $tmpOut) { Remove-Item $tmpOut -Recurse -Force }
 New-Item -ItemType Directory -Path $tmpOut | Out-Null
+
 $srcOut = Resolve-Path ".\.output"
 $rc = robocopy $srcOut $tmpOut /MIR /NFL /NDL /NJH /NJS /NP
 if ($LASTEXITCODE -ge 8) { Write-Host "[ERR] Robocopy to TEMP failed (exit $LASTEXITCODE)."; exit 1 }
 Write-Host "[OK] .output copied to TEMP: $tmpOut"
 
-# 6) VYCISTI .output NA SOURCE BRANCH, ABY checkout NA DIST NEPADOL
+# 6) NA SOURCE BRANCH: VYCISTI .output, aby checkout na dist nepadol
 Write-Host "[INFO] Cleaning .output on $SourceBranch..."
 try { git restore --staged .output 2>$null } catch {}
 try { git checkout -- .output 2>$null } catch {}
 if (Test-Path ".\.output") { Remove-Item ".\.output" -Recurse -Force }
 
-# 7) PREPNI NA DIST VETVU
+# 7) PREPNI NA DIST VETVU (vytvor ak neexistuje)
 Write-Host "[INFO] Switching to $DistBranch..."
-$branches = (git branch --list $DistBranch)
-if (-not $branches) { Run "git branch $DistBranch $SourceBranch" }
-Run "git checkout $DistBranch"
+$exists = (git rev-parse --verify $DistBranch 2>$null)
+if (-not $?) {
+  Run "git checkout -b $DistBranch"
+} else {
+  Run "git checkout $DistBranch"
+}
 
-# 8) NA DIST: nahrad .output obsahom z TEMP
-if (Test-Path ".\.output") { Remove-Item ".\.output" -Recurse -Force }
-New-Item -ItemType Directory -Path ".\.output" | Out-Null
-$rc2 = robocopy $tmpOut ".\.output" /MIR /NFL /NDL /NJH /NJS /NP
+# 8) NA DIST: ZMAZ VSETKO OKREM .git, SKOPIRUJ .output Z TEMP DO KORENA
+Write-Host "[INFO] Cleaning dist worktree (except .git)..."
+Get-ChildItem -Force | Where-Object { $_.Name -ne ".git" } | Remove-Item -Recurse -Force
+
+Write-Host "[INFO] Copying .output to dist root..."
+$rc2 = robocopy $tmpOut ".\" /MIR /NFL /NDL /NJH /NJS /NP
 if ($LASTEXITCODE -ge 8) { Write-Host "[ERR] Robocopy to dist failed (exit $LASTEXITCODE)."; exit 1 }
 
-# 9) COMMIT A PUSH .output NA DIST
-Write-Host "[INFO] Committing and pushing .output to $DistBranch..."
-Run "git add -A .output"
+# 9) COMMIT A PUSH OBSAHU DIST (bude tam len .output/)
+Write-Host "[INFO] Committing and pushing dist..."
+Run "git add -A"
 $ts2 = Get-Date -Format "yyyy-MM-ddTHH:mm:ssZ"
 Run "git commit -m `"Deploy .output from $SourceBranch $ts2`""
 Run "git push origin $DistBranch"
