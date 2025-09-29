@@ -25,9 +25,11 @@
   },
   "devDependencies": {
     "@nuxtjs/sitemap": "^7.4.3",
+    "@types/node": "^24.5.2",
     "@types/nodemailer": "^6.4.17",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",
+    "vite": "^7.1.7",
     "vite-plugin-vuetify": "^2.1.1",
     "vuetify": "^3.8.12"
   }
