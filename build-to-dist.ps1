@@ -1,58 +1,89 @@
 # build-to-dist.ps1
+# Cieľ: z master urobiť build a pushnúť vetvu "dist", ktorá obsahuje len priečinok .output/
+# Bez prepínania vetiev v pracovnom strome; používa dočasný git worktree.
 
-# Kontrola prítomnosti .env a požadovaných premenných
-$envPath = ".env"
-if (!(Test-Path $envPath)) {
-  Write-Host ".env file is missing. Make sure it exists in the project root."
-  exit 1
+param(
+  [string]$SourceBranch = "master",
+  [string]$DistBranch = "dist",
+  [switch]$SkipEnvCheck,
+  [switch]$UseNpm
+)
+
+$ErrorActionPreference = "Stop"
+
+function Run([string]$cmd) {
+  Write-Host ">> $cmd"
+  iex $cmd
+  if ($LASTEXITCODE -ne 0) { throw "Command failed: $cmd" }
 }
 
-$envContent = Get-Content $envPath | Where-Object { $_ -match "=" }
-$requiredKeys = @("MAIL_USER", "MAIL_PASS", "MAIL_TO")
-foreach ($key in $requiredKeys) {
-  if (-not ($envContent -match "^$key\s*=")) {
-    Write-Host "Missing required key in .env: $key"
-    exit 1
+# 0) over git a vetvu
+git rev-parse --is-inside-work-tree | Out-Null
+$current = (git branch --show-current).Trim()
+if ($current -ne $SourceBranch) {
+  throw "Si na '$current'. Buď sa prepni na '$SourceBranch', alebo použi -SourceBranch $current."
+}
+
+# 1) workspace musí byť čistý (nechtiac by si nezapísal iné zmeny)
+if (git status --porcelain) {
+  throw "Necommitnuté zmeny v zdrojovej vetve. Urob commit/stash."
+}
+
+# 2) env kontrola (voliteľné)
+if (-not $SkipEnvCheck) {
+  $envPath = ".env"
+  if (!(Test-Path $envPath)) { throw ".env chýba v projekte." }
+  $envContent = Get-Content $envPath | Where-Object { $_ -match "=" }
+  foreach ($k in @("MAIL_USER","MAIL_PASS","MAIL_TO")) {
+    if (-not ($envContent -match "^$k\s*=")) { throw "Chýba $k v .env" }
   }
+  Write-Host "Env OK."
 }
 
-Write-Host "Environment variables verified."
-
-# Spustenie buildu
-Write-Host "Starting Nuxt build..."
-npm run build
-
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "Build failed. Exiting."
-  exit 1
+# 3) build (prefer pnpm)
+if (Get-Command pnpm -ErrorAction SilentlyContinue) {
+  try { Run "pnpm approve-builds" } catch { Write-Host "(approve-builds nie je potrebné)" }
+  Run "pnpm install --frozen-lockfile"
+  Run "pnpm build"
+} else {
+  Run "npm ci"
+  Run "npm run build"
 }
 
-# Commit build do main vetvy
-Write-Host "Committing .output to main..."
-git add .
-git add .\.output
-git add -f .\.output\server\node_modules
-git commit -m "Build commit"
-git push origin main
+if (!(Test-Path ".output")) { throw "Build nevytvoril .output/" }
 
-# Prepnutie na dist vetvu
-Write-Host "Switching to dist branch..."
-git checkout dist
+# 4) dočasný worktree pre dist (do %TEMP%)
+$workRoot = Join-Path $env:TEMP "boxing-orlova-dist"
+if (Test-Path $workRoot) { Remove-Item $workRoot -Recurse -Force }
 
-# Prenos buildnutého výstupu zo späť z main
-Write-Host "Copying .output from main..."
-git checkout main -- .output
+# -B vytvorí/aktualizuje referenciu vetvy na HEAD zdrojovej vetvy
+Run "git worktree add -B $DistBranch `"$workRoot`" $SourceBranch"
 
-# Commit a push do dist vetvy
-Write-Host "Committing and pushing to dist..."
-git add -f .output
-$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-git commit -m "Deploy from latest main ($timestamp)"
-git push origin dist
+Push-Location $workRoot
+try {
+  # 5) prepni na dist (ak ju -B nevytvoril priamo)
+  try { Run "git checkout $DistBranch" } catch { }
 
-# Návrat na hlavnú vetvu
-Write-Host "Switching back to main..."
-git checkout main
+  # 6) vyčisti všetko okrem .git
+  Get-ChildItem -Path . -Force | Where-Object { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
 
-Write-Host "Deployment completed. Checking git status:"
-git status
+  # 7) skopíruj .output/ do koreňa dist
+  New-Item -ItemType Directory -Force -Path ".output" | Out-Null
+  $src = Resolve-Path (Join-Path (Split-Path -Path $PSCommandPath -Parent | Split-Path -Parent) ".output")
+  # ↑ $src = .output v pôvodnom pracovnom strome (nie vo worktree)
+
+  $rc = robocopy $src ".\ .output" /MIR /NFL /NDL /NJH /NJS /NP
+  if ($LASTEXITCODE -ge 8) { throw "Robocopy zlyhalo (exit $LASTEXITCODE)" }
+
+  # 8) commit + push len .output/
+  Run "git add -A"
+  $ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
+  Run "git commit -m `"Deploy .output ($ts)`""
+  try { Run "git push -u origin $DistBranch" } catch { Run "git push origin $DistBranch" }
+
+} finally {
+  Pop-Location
+  Run "git worktree remove `"$workRoot`" --force"
+}
+
+Write-Host "Hotovo: dist vetva aktualizovaná, obsahuje .output/ pripravené pre serverový cron."
