@@ -249,7 +249,7 @@ async function renderInlineStyles(usedModules) {
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
-const entryFileName = "CA_QzX4w.js";
+const entryFileName = "CXHuvw-Z.js";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
