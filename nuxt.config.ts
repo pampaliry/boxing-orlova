@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    compatibilityDate: '2025-08-12', 
+    compatibilityDate: '2025-08-12',
     preset: 'node',
     serveStatic: true,
     routeRules: {},
