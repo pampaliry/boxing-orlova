@@ -9,7 +9,7 @@
         </v-btn>
         <v-btn 
           color="secondary" to="/contact" size="large" class="mx-2" aria-label="Kontaktujte ma">
-          Kontaktuj ma
+          Kontaktujte nás
         </v-btn>
       </v-card-actions>
     </v-row>
