@@ -1,5 +1,5 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { h as buildAssetsURL, b as useRuntimeConfig, i as getResponseStatusText, j as getResponseStatus, k as defineRenderHandler, p as publicAssetsURL, g as getQuery, l as createError, m as getRouteRules, n as hasProtocol, o as relative, q as joinURL, u as useNitroApp } from '../_/nitro.mjs';
+import { j as buildAssetsURL, u as useRuntimeConfig, k as getResponseStatusText, l as getResponseStatus, m as defineRenderHandler, p as publicAssetsURL, g as getQuery, n as createError, o as getRouteRules, q as hasProtocol, v as relative, w as joinURL, b as useNitroApp } from '../_/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
@@ -72,7 +72,7 @@ function createHead(options = {}) {
   return head;
 }
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#d0202a"},{"name":"description","content":"Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé. Profesionální trenéři, kondiční příprava, sparingy a individuální tréninky."},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://boxing-orlova.mm-smart.eu/"},{"property":"og:title","content":"Boxing Orlová – Klub Boxu a MMA"},{"property":"og:description","content":"Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé. Přijď si vyzkoušet první trénink."},{"property":"og:image","content":"https://boxing-orlova.mm-smart.eu/social-preview.jpg"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"Boxing Orlová – Klub Boxu a MMA"},{"name":"twitter:description","content":"Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy — pro děti i dospělé."},{"name":"twitter:image","content":"https://boxing-orlova.mm-smart.eu/social-preview.jpg"}],"link":[{"rel":"canonical","href":"https://boxing-orlova.mm-smart.eu/"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"cs"},"title":"Boxing Orlová – Box a MMA pro děti, mládež i dospělé"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#d0202a"},{"name":"description","content":"Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé."},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://boxing-orlova.mm-smart.eu/"},{"property":"og:title","content":"Boxing Orlová – Klub Boxu a MMA"},{"property":"og:description","content":"Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy — pro děti i dospělé."},{"property":"og:image","content":"https://boxing-orlova.mm-smart.eu/social-preview.jpg"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"Boxing Orlová – Klub Boxu a MMA"},{"name":"twitter:description","content":"Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy."},{"name":"twitter:image","content":"https://boxing-orlova.mm-smart.eu/social-preview.jpg"}],"link":[{"rel":"canonical","href":"https://boxing-orlova.mm-smart.eu/"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"cs"},"title":"Boxing Orlová – Box a MMA pro děti, mládež i dospělé"};
 
 const appRootTag = "div";
 
@@ -249,7 +249,7 @@ async function renderInlineStyles(usedModules) {
 
 const renderSSRHeadOptions = {"omitLineBreaks":false};
 
-const entryFileName = "C2oGQtwU.js";
+const entryFileName = "qejrKgOY.js";
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
