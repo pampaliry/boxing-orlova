@@ -1,6 +1,6 @@
 const interopDefault = r => r.default || r || [];
 const styles = {
-  "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/entry.js": () => import('./entry-styles.Cv0KJVvW.mjs').then(interopDefault),
+  "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/entry.js": () => import('./entry-styles.DCfb1hyj.mjs').then(interopDefault),
   "plugins/vuetify.ts": () => import('./vuetify-styles.3bE7szOZ.mjs').then(interopDefault),
   "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/components/error-404.vue": () => import('./error-404-styles.CINDYbTo.mjs').then(interopDefault),
   "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/components/error-500.vue": () => import('./error-500-styles.B27IOzKa.mjs').then(interopDefault),
