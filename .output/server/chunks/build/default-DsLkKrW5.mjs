@@ -33,7 +33,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   _push(`<span${ssrRenderAttrs(mergeProps({
     class: "rotate-slow",
     "aria-hidden": "true"
-  }, _attrs))} data-v-c3559b4a><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" data-v-c3559b4a><circle cx="100" cy="100" r="60" stroke="#00DC82" stroke-width="7" fill="none" data-v-c3559b4a></circle><circle cx="100" cy="100" r="30" stroke="#4B5563" stroke-width="3" fill="none" data-v-c3559b4a></circle><line x1="100" y1="40" x2="100" y2="160" stroke="#18181B" stroke-width="6" data-v-c3559b4a></line><line x1="40" y1="100" x2="160" y2="100" stroke="#18181B" stroke-width="6" data-v-c3559b4a></line><line x1="60" y1="60" x2="140" y2="140" stroke="#E5E7EB" stroke-width="3" data-v-c3559b4a></line><line x1="140" y1="60" x2="60" y2="140" stroke="#E5E7EB" stroke-width="3" data-v-c3559b4a></line><circle cx="100" cy="100" r="5" fill="#18181B" data-v-c3559b4a></circle></svg></span>`);
+  }, _attrs))} data-v-a986ec44><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" data-v-a986ec44><circle cx="100" cy="100" r="60" stroke="#00DC82" stroke-width="7" fill="none" data-v-a986ec44></circle><circle cx="100" cy="100" r="30" stroke="#4B5563" stroke-width="3" fill="none" data-v-a986ec44></circle><line x1="100" y1="40" x2="100" y2="160" stroke="#18181B" stroke-width="6" data-v-a986ec44></line><line x1="40" y1="100" x2="160" y2="100" stroke="#18181B" stroke-width="6" data-v-a986ec44></line><line x1="60" y1="60" x2="140" y2="140" stroke="#E5E7EB" stroke-width="3" data-v-a986ec44></line><line x1="140" y1="60" x2="60" y2="140" stroke="#E5E7EB" stroke-width="3" data-v-a986ec44></line><circle cx="100" cy="100" r="5" fill="#18181B" data-v-a986ec44></circle></svg></span>`);
 }
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
@@ -41,7 +41,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LogoRotate.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-c3559b4a"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-a986ec44"]]);
 const makeVToolbarTitleProps = propsFactory({
   text: String,
   ...makeComponentProps(),
@@ -3398,4 +3398,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-BVZG7R72.mjs.map
+//# sourceMappingURL=default-DsLkKrW5.mjs.map

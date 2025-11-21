@@ -4264,7 +4264,7 @@ const _routes = [
   {
     name: "projects",
     path: "/projects",
-    component: () => import('./projects-CVjhDTtT.mjs')
+    component: () => import('./projects-wP4c82WP.mjs')
   },
   {
     name: "posts-slug",
@@ -9786,7 +9786,7 @@ const plugins = [
   vuetify_hjFy4UiBVKu2U8_BW9ggkFzfvErKr3wFgTHpa6TF5Ds
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-BVZG7R72.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-DsLkKrW5.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent$1({
   name: "LayoutLoader",

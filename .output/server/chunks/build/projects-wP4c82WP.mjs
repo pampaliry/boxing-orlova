@@ -736,7 +736,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(VCardTitle, { class: "d-flex align-center justify-space-between flex-wrap" }, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
-                  _push3(`<span class="text-h5" data-v-10420312${_scopeId2}>WebSocket BPM (minimal)</span><div class="text-medium-emphasis" aria-live="polite" data-v-10420312${_scopeId2}>`);
+                  _push3(`<span class="text-h5" data-v-eadeb469${_scopeId2}>WebSocket BPM (minimal)</span><div class="text-medium-emphasis" aria-live="polite" data-v-eadeb469${_scopeId2}>`);
                   _push3(ssrRenderComponent(VChip, {
                     color: status.value === "connected" ? "green" : status.value === "connecting" ? "orange" : status.value === "error" ? "red" : "grey",
                     size: "small",
@@ -754,7 +754,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                     _: 1
                   }, _parent3, _scopeId2));
                   if (status.value !== "disconnected") {
-                    _push3(`<span data-v-10420312${_scopeId2}><small data-v-10420312${_scopeId2}>WS: <code data-v-10420312${_scopeId2}>${ssrInterpolate(shorten(wsUrl.value))}</code></small></span>`);
+                    _push3(`<span data-v-eadeb469${_scopeId2}><small data-v-eadeb469${_scopeId2}>WS: <code data-v-eadeb469${_scopeId2}>${ssrInterpolate(shorten(wsUrl.value))}</code></small></span>`);
                   } else {
                     _push3(`<!---->`);
                   }
@@ -791,7 +791,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             _push2(ssrRenderComponent(VCardText, null, {
               default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                 if (_push3) {
-                  _push3(`<div class="d-flex align-center mb-4" data-v-10420312${_scopeId2}><strong data-v-10420312${_scopeId2}>BPM:</strong>`);
+                  _push3(`<div class="d-flex align-center mb-4" data-v-eadeb469${_scopeId2}><strong data-v-eadeb469${_scopeId2}>BPM:</strong>`);
                   _push3(ssrRenderComponent(VChip, {
                     size: "small",
                     color: "primary",
@@ -808,7 +808,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
                     }),
                     _: 1
                   }, _parent3, _scopeId2));
-                  _push3(`</div><div class="chart-wrap" role="img" aria-label="Historick\xFD priebeh BPM z WebSocketu" data-v-10420312${_scopeId2}><canvas class="chart"${ssrRenderAttr("width", width)}${ssrRenderAttr("height", height)} data-v-10420312${_scopeId2}></canvas></div>`);
+                  _push3(`</div><div class="chart-wrap" role="img" aria-label="Historick\xFD priebeh BPM z WebSocketu" data-v-eadeb469${_scopeId2}><canvas class="chart"${ssrRenderAttr("width", width)}${ssrRenderAttr("height", height)} data-v-eadeb469${_scopeId2}></canvas></div>`);
                 } else {
                   return [
                     createVNode("div", { class: "d-flex align-center mb-4" }, [
@@ -916,7 +916,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/WebSocketBpm.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-10420312"]]);
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-eadeb469"]]);
 const _sfc_main = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLink = __nuxt_component_0;
@@ -1019,4 +1019,4 @@ _sfc_main.setup = (props, ctx) => {
 const projects = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
 export { projects as default };
-//# sourceMappingURL=projects-CVjhDTtT.mjs.map
+//# sourceMappingURL=projects-wP4c82WP.mjs.map

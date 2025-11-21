@@ -120,7 +120,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "Cn3fg4_b.js",
+    "file": "Btqc6PLI.js",
     "name": "default",
     "src": "layouts/default.vue",
     "isDynamicEntry": true,
@@ -130,11 +130,11 @@ const client_manifest = {
       "_fGU6GiQm.js"
     ],
     "css": [
-      "default.CAkc-SWS.css"
+      "default.DAxOYR8w.css"
     ]
   },
-  "default.CAkc-SWS.css": {
-    "file": "default.CAkc-SWS.css",
+  "default.DAxOYR8w.css": {
+    "file": "default.DAxOYR8w.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -224,7 +224,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "CXHuvw-Z.js",
+    "file": "Dxi21OY9.js",
     "name": "entry",
     "src": "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -235,7 +235,7 @@ const client_manifest = {
       "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/components/error-500.vue"
     ],
     "css": [
-      "entry.D8z8iQR9.css"
+      "entry.Dcap1RRN.css"
     ],
     "assets": [
       "materialdesignicons-webfont.CSr8KVlo.eot",
@@ -245,8 +245,8 @@ const client_manifest = {
     ],
     "_globalCSS": true
   },
-  "entry.D8z8iQR9.css": {
-    "file": "entry.D8z8iQR9.css",
+  "entry.Dcap1RRN.css": {
+    "file": "entry.Dcap1RRN.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -340,7 +340,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "hDOxrgVW.js",
+    "file": "ONwSXdYR.js",
     "name": "projects",
     "src": "pages/projects.vue",
     "isDynamicEntry": true,
@@ -352,11 +352,11 @@ const client_manifest = {
       "_fGU6GiQm.js"
     ],
     "css": [
-      "projects.Ctgt4MkX.css"
+      "projects.CwUiXS7q.css"
     ]
   },
-  "projects.Ctgt4MkX.css": {
-    "file": "projects.Ctgt4MkX.css",
+  "projects.CwUiXS7q.css": {
+    "file": "projects.CwUiXS7q.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true

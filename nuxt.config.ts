@@ -36,7 +36,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    compatibilityDate: '2025-08-12',
+    compatibilityDate: '2025-08-12', 
+    preset: 'node',
+    serveStatic: true,
+    routeRules: {},
   },
 
   modules: [
@@ -79,10 +82,10 @@ export default defineNuxtConfig({
       ],
     },
     manifest: {
-      name: 'MM Smart Portfolio',
-      short_name: 'MM Portfolio',
+      name: 'Boxing Orlová - Klub bojových uměňí',
+      short_name: 'Boxing Orlová',
       description:
-        'Portfólio vývojára s reálnym backendom, API a moderným frontendom.',
+        'Klub bojových uměňí.',
       theme_color: '#424242',
       background_color: '#f4f4f4',
       display: 'standalone',
@@ -96,59 +99,60 @@ export default defineNuxtConfig({
   },
 
   // 🌍 SEO nastavenia
-  app: {
-    head: {
-      htmlAttrs: { lang: 'sk' },
-      title: 'Boxing Orlová - Klub Boxu a MMA',
-      link: [{ rel: 'canonical', href: 'https://mm-smart.eu/' }],
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#424242' },
+ app: {
+  head: {
+    htmlAttrs: { lang: 'cs' },
+    title: 'Boxing Orlová – Box a MMA pro děti, mládež i dospělé',
+    link: [
+      { rel: 'canonical', href: 'https://boxing-orlova.mm-smart.eu/' }
+    ],
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: '#d0202a' },
 
-        { property: 'article:author', content: 'Matus Matko' },
-        { property: 'article:published_time', content: '2025-08-16T09:00:00Z' },
-        {
-          name: 'description',
-          content:
-            ' Boxing Orlová - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
-        },
+      {
+        name: 'description',
+        content:
+          'Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé. Profesionální trenéři, kondiční příprava, sparingy a individuální tréninky.'
+      },
 
-        // Open Graph
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://mm-smart.eu/' },
-        {
-          property: 'og:title',
-          content: 'boxing-orlova.mm-smart.eu - Klub Boxu a MMA',
-        },
-        {
-          property: 'og:description',
-          content:
-            'boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
-        },
-        {
-          property: 'og:image',
-          content: 'boxing-orlova.mm-smart.eu/social-preview.jpg',
-        },
+      // OG
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://boxing-orlova.mm-smart.eu/' },
+      {
+        property: 'og:title',
+        content: 'Boxing Orlová – Klub Boxu a MMA'
+      },
+      {
+        property: 'og:description',
+        content:
+          'Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé. Přijď si vyzkoušet první trénink.'
+      },
+      {
+        property: 'og:image',
+        content: 'https://boxing-orlova.mm-smart.eu/social-preview.jpg'
+      },
 
-        // Twitter
-        { name: 'twitter:card', content: 'summary_large_image' },
-        {
-          name: 'twitter:title',
-          content: 'boxing-orlova.mm-smart.eu - Klub Boxu a MMA',
-        },
-        {
-          name: 'twitter:description',
-          content:
-            'boxing-orlova.mm-smart.eu - Klub Boxu a MMA. Tréningy pre deti, mládež a dospelých. Profesionálni tréneri, moderné vybavenie a skvelá atmosféra. Pridajte sa k nám a zlepšite svoju kondíciu a techniku v boxe a MMA.',
-        },
-        {
-          name: 'twitter:image',
-          content: 'https://mm-smart.eu/social-preview.jpg',
-        },
-      ],
-    },
-  },
+      // TWITTER
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content: 'Boxing Orlová – Klub Boxu a MMA'
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy — pro děti i dospělé.'
+      },
+      {
+        name: 'twitter:image',
+        content: 'https://boxing-orlova.mm-smart.eu/social-preview.jpg'
+      }
+    ]
+  }
+}
+,
 
   // ✅ Nuxt Site Config (pre sitemap/robots)
   site: {
