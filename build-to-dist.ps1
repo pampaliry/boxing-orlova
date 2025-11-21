@@ -9,7 +9,7 @@
 # POZN: .output NESMIE byt v .gitignore pre tento flow
 
 param(
-  [string]$SourceBranch = "master",  # ak pouzivas main, zmen na "main"
+  [string]$SourceBranch = "master",
   [string]$DistBranch   = "dist",
   [switch]$UseNpm,
   [switch]$SkipEnvCheck
@@ -34,33 +34,48 @@ if ($currentBranch -ne $SourceBranch) {
   Run "git checkout $SourceBranch"
 }
 
-# 1) .env kontrola (ak nie je skip)
+# 1) .env kontrola
 if (-not $SkipEnvCheck) {
   $envPath = ".env"
   if (!(Test-Path $envPath)) {
     Write-Host "[ERR] .env file missing. Aborting."
     exit 1
   }
+
   $envContent = Get-Content $envPath | Where-Object { $_ -match "=" }
   $requiredKeys = @("MAIL_USER", "MAIL_PASS", "MAIL_TO")
+
   foreach ($key in $requiredKeys) {
     if (-not ($envContent -match "^$key\s*=")) {
       Write-Host "[ERR] Missing required key in .env: $key"
       exit 1
     }
   }
+
   Write-Host "[OK] .env variables verified."
 }
 
-# 2) git kontrola: dovol staged, zastav untracked/unstaged
+# === ADDED: FORCE PORT FOR NITRO/NODE-LISTENER ================================
+Write-Host "[INFO] Setting custom port for build: 3001"
+
+$Env:PORT = "3001"
+$Env:NITRO_PORT = "3001"
+$Env:NITRO_HOST = "0.0.0.0"
+
+Write-Host "  PORT=$Env:PORT"
+Write-Host "  NITRO_PORT=$Env:NITRO_PORT"
+Write-Host "  NITRO_HOST=$Env:NITRO_HOST"
+# ==============================================================================
+
+# 2) git kontrola: unstaged/untracked = STOP
 $porcelain = git status --porcelain
 $lines = ($porcelain -split "`n") | Where-Object { $_ -ne "" }
 
 $hasDirty = $false
 foreach ($l in $lines) {
   if ($l.Length -ge 2) {
-    $x = $l.Substring(0,1)  # staged index
-    $y = $l.Substring(1,1)  # working tree (unstaged)
+    $x = $l.Substring(0,1)
+    $y = $l.Substring(1,1)
     if ($l.StartsWith("??") -or $y -ne " ") { $hasDirty = $true; break }
   }
 }
@@ -71,7 +86,7 @@ if ($hasDirty) {
   exit 1
 }
 
-# 3) auto-commit staged (ak je co) + push
+# 3) auto commit staged
 $staged = (git diff --cached --name-only)
 if ($staged) {
   $ts = Get-Date -Format "yyyy-MM-ddTHH:mm:ssZ"
@@ -98,10 +113,9 @@ if (!(Test-Path ".output")) {
   exit 1
 }
 
-# 5) COMMIT .output DO SOURCE vetvy (iba .output, nie cely projekt)
+# 5) commit .output
 Write-Host "[INFO] Committing .output on $SourceBranch..."
 Run "git add -f .output"
-# ak potrebujes aj node_modules v .output/server:
 if (Test-Path ".\.output\server\node_modules") {
   Run "git add -f .\.output\server\node_modules"
 }
@@ -109,24 +123,24 @@ $ts2 = Get-Date -Format "yyyy-MM-ddTHH:mm:ssZ"
 Run "git commit -m `"Build commit (.output) $ts2`""
 Run "git push origin $SourceBranch"
 
-# 6) PREPNI NA DIST (vytvor ak neexistuje)
+# 6) checkout dist branch
 Write-Host "[INFO] Switching to $DistBranch..."
 $exists = $false
 try { git rev-parse --verify $DistBranch 2>$null | Out-Null; if ($LASTEXITCODE -eq 0) { $exists = $true } } catch {}
 if ($exists) { Run "git checkout $DistBranch" } else { Run "git checkout -b $DistBranch" }
 
-# 7) PRENES .output zo SOURCE do DIST
+# 7) copy .output
 Write-Host "[INFO] Copying .output from $SourceBranch to $DistBranch..."
 Run "git checkout $SourceBranch -- .output"
 
-# 8) COMMIT A PUSH DIST (iba .output)
+# 8) commit dist
 Write-Host "[INFO] Committing and pushing to $DistBranch..."
 Run "git add -f .output"
 $ts3 = Get-Date -Format "yyyy-MM-ddTHH:mm:ssZ"
 Run "git commit -m `"Deploy from latest $SourceBranch ($ts3)`""
 Run "git push origin $DistBranch"
 
-# 9) NAVRAT NA SOURCE
+# 9) return to source
 Write-Host "[INFO] Switching back to $SourceBranch..."
 Run "git checkout $SourceBranch"
 
