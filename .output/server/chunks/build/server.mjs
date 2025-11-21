@@ -9,7 +9,7 @@ import { format as format$1 } from 'node:url';
 import { isIP } from 'node:net';
 import { promises, statSync, createReadStream } from 'node:fs';
 import { basename } from 'node:path';
-import { x as klona, y as defuFn, n as createError$1, q as hasProtocol, z as isScriptProtocol, w as joinURL, A as withQuery, B as sanitizeStatusCode, C as getContext, D as baseURL, E as createHooks, F as executeAsync, G as withBase, d as destr, H as toRouteMatcher, I as createRouter$1, J as defu } from '../_/nitro.mjs';
+import { v as klona, w as defuFn, l as createError$1, n as hasProtocol, x as isScriptProtocol, q as joinURL, y as withQuery, z as sanitizeStatusCode, A as getContext, B as baseURL, C as createHooks, D as executeAsync, E as withBase, F as destr, G as toRouteMatcher, H as createRouter$1, I as defu } from '../_/nitro.mjs';
 import { RouterView, useRoute as useRoute$1, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
 import { u as useHead$1, h as headSymbol } from '../routes/renderer.mjs';
