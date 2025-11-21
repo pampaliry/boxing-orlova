@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     CMS_API_URL: process.env.NUXT_CMS_API_URL,
     CMS_READONLY_TOKEN: process.env.NUXT_CMS_READONLY_TOKEN,
     CMS_MOCK: process.env.NUXT_CMS_MOCK ?? '0',
+    port: process.env.PORT || 3001,
+    nitroPort: process.env.NITRO_PORT || 3001,
+    nitroHost: process.env.NITRO_HOST || "0.0.0.0",
     public: {
       wsUrl: process.env.NUXT_PUBLIC_WS_URL || '',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
@@ -39,10 +42,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-08-12',
     preset: 'node',
     serveStatic: true,
-    routeRules: {},
-    port: process.env.PORT || 3001,
-  // @ts-ignore
-  host: process.env.HOST || "0.0.0.0",
+    routeRules: {}
   },
 
   modules: [
