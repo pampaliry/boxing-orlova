@@ -40,6 +40,9 @@ export default defineNuxtConfig({
     preset: 'node',
     serveStatic: true,
     routeRules: {},
+    port: process.env.PORT || 3001,
+  // @ts-ignore
+  host: process.env.HOST || "0.0.0.0",
   },
 
   modules: [
