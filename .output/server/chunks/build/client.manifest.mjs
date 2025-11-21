@@ -224,7 +224,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "wU2L7kS0.js",
+    "file": "CqASGph1.js",
     "name": "entry",
     "src": "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -235,7 +235,7 @@ const client_manifest = {
       "node_modules/.pnpm/nuxt@3.19.2_@parcel+watcher_559d07260925e97fe7720b7a22a057dd/node_modules/nuxt/dist/app/components/error-500.vue"
     ],
     "css": [
-      "entry.BUQT4SDZ.css"
+      "entry.CQmrHCpD.css"
     ],
     "assets": [
       "materialdesignicons-webfont.CSr8KVlo.eot",
@@ -245,8 +245,8 @@ const client_manifest = {
     ],
     "_globalCSS": true
   },
-  "entry.BUQT4SDZ.css": {
-    "file": "entry.BUQT4SDZ.css",
+  "entry.CQmrHCpD.css": {
+    "file": "entry.CQmrHCpD.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
