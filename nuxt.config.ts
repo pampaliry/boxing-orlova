@@ -101,7 +101,7 @@ export default defineNuxtConfig({
 
     workbox: {
       navigateFallback: null,
-      globPatterns: ['**/*.{js,css,ico,png,svg,webp}'],
+      globPatterns: ['**/*.{js,css,ico,svg,webp}'],
 
       runtimeCaching: [
         {
