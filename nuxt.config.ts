@@ -1,6 +1,7 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config';
 import vuetify from 'vite-plugin-vuetify';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineNuxtConfig({
   // -----------------------------------------
@@ -28,6 +29,11 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: false },
+
+  experimental: {
+    typedPages: false,
+    asyncEntry: false,
+  },
 
   // -----------------------------------------
   // 🎨 Styling
@@ -71,11 +77,29 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          // už nikdy NEpoužívame @import
           additionalData: `@use "@/assets/styles/colours.scss" as *;`,
         },
       },
     },
+    plugins: [
+      ViteImageOptimizer({
+        png: {
+          quality: 80,
+        },
+        jpeg: {
+          quality: 80,
+        },
+        webp: {
+          quality: 75,
+        },
+        avif: {
+          quality: 50,
+        },
+        svg: {
+          multipass: true,
+        },
+      }),
+    ],
   },
 
   // -----------------------------------------
