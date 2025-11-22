@@ -1,32 +1,61 @@
-// import this after install `@mdi/font` package
+// Material Design Icons
 import '@mdi/font/css/materialdesignicons.css';
 
+// Základné Vuetify štýly
 import 'vuetify/styles';
-import { createVuetify } from 'vuetify';
 
-export default defineNuxtPlugin((app) => {
+// Core importy
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+
+// Nutné pre Nuxt/plugin context
+import { defineNuxtPlugin } from 'nuxt/app';
+
+export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
-    // ... your configuration
-    // components,
-    // directives,
+    components,
+    directives,
+
     theme: {
-      defaultTheme: 'dark',
+      defaultTheme: 'light',
+
       themes: {
         light: {
           colors: {
-            background: '#f5f5f5',
-            surface: '#ffffff',
-            primary: '#1976D2',
-            secondary: '#424242',
+            // základné farby UI
+            background: '#ffffff', // Snow White
+            surface: '#ffffff', // Snow White
+            primary: '#d50000', // Fury Red
+            secondary: '#4a4a4a', // Steel Gray
             accent: '#82B1FF',
-            error: '#FF5252',
-            info: '#2196F3',
-            success: '#4CAF50',
-            warning: '#FB8C00',
+            error: '#d50000',
+            info: '#ff6a00',
+            success: '#cccccc',
+            warning: '#ff6a00',
+
+            // tvoje custom farby (identita Boxing Orlová)
+            furyRed: '#d50000',
+            nighBlack: '#111111',
+            snowWhite: '#ffffff',
+            steelGray: '#4a4a4a',
+            ashGray: '#cccccc',
+            warmOrange: '#ff6a00',
           },
         },
       },
     },
+
+    // globálny style config
+    defaults: {
+      global: {
+        style: {
+          fontFamily: `'Bebas Neue', sans-serif`,
+        },
+      },
+    },
   });
-  app.vueApp.use(vuetify);
+
+  // nainjektovanie Vuetify do aplikácie
+  nuxtApp.vueApp.use(vuetify);
 });

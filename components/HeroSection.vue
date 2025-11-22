@@ -1,19 +1,11 @@
 <template>
-  <v-card class="pa-8" elevation="10" aria-label="Úvodný popis projektu">
-
-    <!-- HlAVNY-NADPIS SEKCIA -->
-    <v-card-title class="text-center d-flex justify-center align-center flex-wrap">
-      <span class="d-inline-flex align-center">
-        <HandWave style="font-size: 1.5rem; margin-right: 0.5rem;" />
-        <h1 class="main-heading" aria-label="Hlavný nadpis stránky">Vitaj na mm-smart.eu</h1>
-      </span>
-    </v-card-title>
-
-    <!-- MAIN-ARTICLE SEKCIA -->
-    <MainArticle />
-
-    <!-- CTA TLAČIDLÁ -->
-    <CallToAction />
-
-  </v-card>
+ <v-container class="py-16 px-0 hero" fluid>
+          <v-row justify="center">
+            <v-col cols="12" sm="10" lg="8">
+              <section class="">
+                <h1>Bojové sporty pro děti, mládež i dospělé</h1>
+              </section>
+            </v-col>
+          </v-row>
+        </v-container>       
 </template>

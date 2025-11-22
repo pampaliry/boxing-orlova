@@ -26,7 +26,7 @@
                 <div class="d-none d-sm-flex">
                   <v-btn 
                   v-for="link in navLinks" :key="link.path" :to="link.path" variant="text"
-                    class="mx-1 text-secondary" :aria-label="`Navigácia na stránku ${link.name}`">
+                    class="mx-1 nav-btn" :aria-label="`Navigácia na stránku ${link.name}`"  color="primary">
                     {{ link.name }}
                   </v-btn>
                 </div>
@@ -44,26 +44,20 @@
 
     <!-- MOBILE DRAWER -->
     <v-navigation-drawer 
-    v-model="drawer" app temporary class="d-sm-none" width="220" role="navigation"
+    v-model="drawer" app temporary class="d-sm-none" width="320" role="navigation"
       aria-label="Mobilné menu">
       <v-list nav dense>
-        <v-list-item 
+        <v-list-item class="my-6"
         v-for="link in navLinks" :key="link.path" :to="link.path"
           :aria-label="`Navigácia na stránku ${link.name}`" link @click="drawer = false">
-          <v-list-item-title>{{ link.name }}</v-list-item-title>
+          <v-list-item-title class="text-center">{{ link.name }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <!-- MAIN CONTENT -->
     <v-main role="main">
-      <v-container class="py-16" fluid>
-        <v-row justify="center">
-          <v-col cols="12" sm="10" lg="8">
-            <NuxtPage />
-          </v-col>
-        </v-row>
-      </v-container>
+      <NuxtPage />
     </v-main>
 
     <!-- FOOTER -->
@@ -77,6 +71,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+//import LogoRotate from '@/components/LogoRotate.vue'
 
 const drawer = ref(false)
 
@@ -86,3 +81,31 @@ const navLinks = [
   { name: 'Kontakt', path: '/contact' },
 ]
 </script>
+
+<style lang="scss">
+header,footer{background-color: $snow-white !important;
+  background-image: url("/public/imgs/eagle/bg-white.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+span.v-btn__content
+{
+  font-size: clamp(0.9rem, 0.5vw + 0.7rem, 1.1rem) !important;
+  font-weight: 700 !important;
+}
+.v-list-item-title{
+  font-size: clamp(2rem, 2.6vw + 1rem, 3.5rem) !important;
+  line-height: normal;
+}
+
+nav.v-navigation-drawer--active {
+  width: 100% !important;
+  //max-width: 100% !important;
+   background-image: url("/public/imgs/eagle/bg-white.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+</style>

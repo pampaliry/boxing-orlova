@@ -1,0 +1,27 @@
+///colours
+$fury-red: #c60000; /// Fury Red Rukavice, CTA tlačidlá, highlighty
+$nigh-black: #111111; /// Nigh Black Pozadie, hlavička, pätička
+$snow-white: #ffffff; /// Snow White Text, pozadie sekcií
+$steel-gray: #4a4a4a; ///Rozdelenia sekcií, UI prvky
+$ash-gray: #cccccc; /// Jemné línie, ikony
+$warm-orange: #ff6a00; /// Pre ohnivé efekty pri hero obrázkoch
+
+/* === Primary and Secondary Colours === */
+$primary: $fury-red;
+$secondary: $steel-gray;
+$background: $snow-white;
+$text-color: $nigh-black;
+$muted-text: $ash-gray;
+$highlight: $warm-orange;
+/* === Alert Colours === */
+$alert-success: #4caf50;
+$alert-warning: #fb8c00;
+$alert-error: #d50000;
+$alert-info: #2196f3;
+
+//$button-bg: $primary;
+//$button-text: $snow-white;
+
+/* === Link Colours === */
+$link-color: $primary;
+//$link-hover-color: darken($primary, 10%);

@@ -1,23 +1,27 @@
 <script setup lang="ts">
-//import { useCms } from '~/composables/useCms'   // ← pridaj
-const { listPosts } = useCms()
+//import HeroSection from '@/components/HeroSection.vue';
 
-const { data: posts, pending, error } = await useAsyncData('posts', () =>
-  listPosts({ limit: 3, depth: 1 })
-)
+
 </script>
 
 <template>
-  <section>
-    <h1>Posledne clanky</h1>
-    <ul v-if="posts?.docs?.length">
-      <li v-for="p in posts.docs" :key="p.id">
-        <NuxtLink :to="`/posts/${p.slug}`">{{ p.title }}</NuxtLink>
-      </li>
-    </ul>
-    <p v-else-if="pending">Nacitavam...</p>
-    <p v-else-if="error">Nastala chyba: {{ error.message }}</p>
-    <p v-else>Nic tu nie je.</p>
-    
-  </section>
+
+
+<HeroSection/>
+ 
 </template>
+
+<style lang="scss">
+//@use "@/assets/styles/colours.scss" as *;
+h1{color: $snow-white;
+}
+
+.hero {
+  background-color: $fury-red;
+  background-image: url("/public/imgs/eagle/bg-red.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+</style>

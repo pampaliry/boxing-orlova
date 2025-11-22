@@ -1,6 +1,6 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config';
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import vuetify from 'vite-plugin-vuetify';
 
 export default defineNuxtConfig({
   // -----------------------------------------
@@ -22,10 +22,9 @@ export default defineNuxtConfig({
     mailPass: process.env.MAIL_PASS,
     mailTo: process.env.MAIL_TO,
 
-    // 🔥 NUTNÉ PRE PRODUKČNÝ PORT – teraz sa bude rešpektovať
     PORT: process.env.PORT || '3001',
     NITRO_PORT: process.env.NITRO_PORT || '3001',
-    NITRO_HOST: process.env.NITRO_HOST || '0.0.0.0'
+    NITRO_HOST: process.env.NITRO_HOST || '0.0.0.0',
   },
 
   devtools: { enabled: false },
@@ -36,26 +35,20 @@ export default defineNuxtConfig({
   css: [
     'vuetify/styles',
     '@mdi/font/css/materialdesignicons.css',
-    '@/assets/styles/main.scss',
+    '@/assets/styles/main.scss', // ← TOTO je kľúčové
   ],
 
   build: {
     transpile: ['vuetify'],
   },
 
-  vite: {
-    plugins: [vuetify({ autoImport: true })],
-    vue: { template: { transformAssetUrls } },
-  },
-
   // -----------------------------------------
-  // 🚀 Nitro Server — toto JE kľúčové
+  // 🚀 Nitro server
   // -----------------------------------------
   nitro: {
     compatibilityDate: '2025-08-12',
-    preset: 'node-server',        
+    preset: 'node-server',
     serveStatic: true,
-    routeRules: {},
   },
 
   // -----------------------------------------
@@ -72,49 +65,71 @@ export default defineNuxtConfig({
   ],
 
   // -----------------------------------------
-  // ⚡ PWA
+  // 🎨 Vite SCSS Global Variables
+  // -----------------------------------------
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // už nikdy NEpoužívame @import
+          additionalData: `@use "@/assets/styles/colours.scss" as *;`,
+        },
+      },
+    },
+  },
+
+  // -----------------------------------------
+  // ⚡ PWA CONFIG
   // -----------------------------------------
   pwa: {
     registerType: 'autoUpdate',
-    workbox: {
-      navigateFallback: null,
-      globPatterns: ['**/*.{js,css,ico,png,svg,webp}'],
-      runtimeCaching: [
-        {
-          urlPattern: ({ request }) => request.mode === 'navigate',
-          handler: 'NetworkFirst',
-          options: { cacheName: 'html-cache', networkTimeoutSeconds: 5 },
-        },
-        {
-          urlPattern: ({ request }) =>
-            ['style', 'script', 'worker'].includes(request.destination),
-          handler: 'StaleWhileRevalidate',
-          options: { cacheName: 'asset-cache' },
-        },
-        {
-          urlPattern: ({ request }) =>
-            ['image', 'font'].includes(request.destination),
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'static-cache',
-            expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
-          },
-        },
-      ],
-    },
 
     manifest: {
       name: 'Boxing Orlová - Klub bojových uměňí',
       short_name: 'Boxing Orlová',
       description: 'Klub bojových uměňí.',
-      theme_color: '#424242',
-      background_color: '#f4f4f4',
+      theme_color: '#000000',
+      background_color: '#ffffff',
       display: 'standalone',
       start_url: '/',
       lang: 'cs',
       icons: [
         { src: '/pwa-icon-192.png', sizes: '192x192', type: 'image/png' },
         { src: '/pwa-icon-512.png', sizes: '512x512', type: 'image/png' },
+      ],
+    },
+
+    workbox: {
+      navigateFallback: null,
+      globPatterns: ['**/*.{js,css,ico,png,svg,webp}'],
+
+      runtimeCaching: [
+        {
+          urlPattern: (ctx: any) => ctx.request.mode === 'navigate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'html-cache',
+            networkTimeoutSeconds: 5,
+          },
+        },
+        {
+          urlPattern: (ctx: any) =>
+            ['style', 'script', 'worker'].includes(ctx.request.destination),
+          handler: 'StaleWhileRevalidate',
+          options: { cacheName: 'asset-cache' },
+        },
+        {
+          urlPattern: (ctx: any) =>
+            ['image', 'font'].includes(ctx.request.destination),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'static-cache',
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 60 * 60 * 24 * 30,
+            },
+          },
+        },
       ],
     },
   },
@@ -125,7 +140,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'cs' },
-      title: 'Boxing Orlová – Box a MMA pro děti, mládež i dospělé',
+
+      title: 'Boxing Orlová – Bojové sporty pro děti, mládež i dospělé',
 
       link: [{ rel: 'canonical', href: 'https://boxing-orlova.mm-smart.eu/' }],
 
@@ -133,7 +149,6 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#d0202a' },
-
         {
           name: 'description',
           content:
@@ -143,14 +158,11 @@ export default defineNuxtConfig({
         // OG
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://boxing-orlova.mm-smart.eu/' },
-        {
-          property: 'og:title',
-          content: 'Boxing Orlová – Klub Boxu a MMA',
-        },
+        { property: 'og:title', content: 'Boxing Orlová – Klub Boxu a MMA' },
         {
           property: 'og:description',
           content:
-            'Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy — pro děti i dospělé.',
+            'Tréninky boxu a MMA v Orlové. Kondice, technika, sparingy — pro děti i dospělé.',
         },
         {
           property: 'og:image',
@@ -159,10 +171,7 @@ export default defineNuxtConfig({
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        {
-          name: 'twitter:title',
-          content: 'Boxing Orlová – Klub Boxu a MMA',
-        },
+        { name: 'twitter:title', content: 'Boxing Orlová – Klub Boxu a MMA' },
         {
           name: 'twitter:description',
           content:
@@ -174,23 +183,5 @@ export default defineNuxtConfig({
         },
       ],
     },
-  },
-
-  // -----------------------------------------
-  // 🔍 Site Config (pre sitemap/robots)
-  // -----------------------------------------
-  site: {
-    url: 'https://boxing-orlova.mm-smart.eu',
-    name: 'Boxing Orlová',
-  },
-
-  sitemap: {},
-
-  robots: {
-    groups: [
-      { userAgent: '*', disallow: ['/api/', '/admin/', '/dev/'] },
-      { userAgent: '*', allow: ['/'] },
-    ],
-    sitemap: ['https://boxing-orlova.mm-smart.eu/sitemap.xml'],
   },
 });

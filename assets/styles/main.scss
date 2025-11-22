@@ -1,5 +1,32 @@
-@use "assets/typography.scss";
+//main.scss
+@use "@/assets/styles/typography.scss" as *;
+@use "@/assets/styles/colours.scss" as *;
 //@use "assets/utility.scss";
-.main-heading {
-  //flex-wrap: nowrap;
+
+/* HOVER: červené pozadie, biely text */
+.nav-btn:hover .v-btn__overlay {
+  background-color: $fury-red !important; /* furyRed */
+  opacity: 1 !important;
+  z-index: 0 !important;
 }
+
+.nav-btn:hover .v-btn__content {
+  color: $snow-white !important; /* snowWhite */
+  z-index: 1 !important;
+  position: relative;
+}
+
+/* ACTIVE (nav aktuálna stránka) */
+.nav-btn.v-btn--active .v-btn__overlay {
+  background-color: $fury-red !important;
+  opacity: 1 !important;
+}
+
+.nav-btn.v-btn--active .v-btn__content {
+  color: $snow-white !important;
+  z-index: 1 !important;
+  position: relative;
+}
+
+/////
+///

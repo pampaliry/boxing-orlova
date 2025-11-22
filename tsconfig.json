@@ -1,12 +1,29 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
+
   "compilerOptions": {
     "skipLibCheck": true,
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "Node",
     "jsx": "preserve",
-    "types": ["vite/client"]
-  }
+
+    // Nuxt + Vite typy
+    "types": ["vite/client", "vue", "node"],
+
+    // Aby VSCode rozumel aliasu @/
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "~/*": ["./*"],
+
+      // Vuetify fix
+      "vuetify": ["node_modules/vuetify"],
+      "vuetify/*": ["node_modules/vuetify/*"],
+      "vite-plugin-vuetify": ["node_modules/vite-plugin-vuetify"]
+    }
+  },
+
+  "include": ["types/**/*.d.ts", "**/*.ts", "**/*.vue"]
 }
