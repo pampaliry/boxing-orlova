@@ -79,47 +79,21 @@ export default defineNuxtConfig({
   // -----------------------------------------
   image: {
     provider: 'ipx',
-    presets: {
-      logo: {
-        modifiers: {
-          f: 'webp',
-        },
-      },
-    },
+    staticFilename: '[name].[ext]', // nechávame originálne názvy súborov
+    presets: {},
+    inject: true,
   },
-
-  /*
-  image: {
+  /*image: {
     provider: 'ipx',
-
-    screens: {
-      sm: 320,
-      md: 640,
-      lg: 1024,
-    },
-
-    ipx: {
-      fs: {
-        dir: [join(rootDir, 'public'), join(rootDir, '.output/public')],
-      },
-    },
     presets: {
-      responsive: {
-        modifiers: {
-          // widths: [320, 640, 1024],
-          format: 'webp',
-          //  densities: [1],
-        },
-        // sizes: '(max-width: 320px) 100vw, (max-width: 640px) 100vw, 1024px',
-      },
       logo: {
         modifiers: {
           f: 'webp',
         },
       },
     },
-  },
-*/
+  },*/
+
   // -----------------------------------------
   // 🎨 Vite (SCSS + Image Optimizer)
   // -----------------------------------------

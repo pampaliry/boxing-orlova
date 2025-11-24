@@ -1,34 +1,42 @@
 <template>
-    <NuxtImg 
-    id="logo"  
-    src="/logo-top-trans.webp" 
-    preset="logo"  
-    alt="logo"
-
-    width="200"
-    height="200"
+  <div class="logo-wrapper">
+    <NuxtImg
+      src="/logo-top-trans.webp"
+      alt="logo"
+      width="120"
+      height="120"
+      class="logo"
     />
+  </div>
 </template>
 
+<script setup>
+</script>
+
 <style scoped>
-
-
- img,  svg {
-  width: 50px;
-  height: 100%;
- 
-  transform-origin: center;
-  display: block;
-  transition: 0.2s;
-  transform: scale(0.9);
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
- img:hover,  svg:hover {
-  transform: scale(1.0);
-  transition: 0.2s;
+/* Rotácia bola v pôvodnej verzii zakomentovaná */
+/*
+.logo {
+  animation: spin 12s linear infinite;
+}
+*/
+
+.logo {
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  padding: 25%
 }
 
-@keyframes rotate360 {
+/*
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
@@ -36,4 +44,5 @@
     transform: rotate(360deg);
   }
 }
+*/
 </style>
