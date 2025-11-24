@@ -23,7 +23,7 @@ const sources = [
                 "loc": "/contact"
             },
             {
-                "loc": "/projects"
+                "loc": "/trainings"
             }
         ],
         "sourceType": "app"
