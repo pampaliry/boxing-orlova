@@ -73,9 +73,33 @@ export default defineNuxtConfig({
   // -----------------------------------------
   // 🖼️ Nuxt Image CONFIG (TS fixnutý cez *.d.ts)
   // -----------------------------------------
+
   image: {
-    //provider: 'static',
-    dir: 'public',
+    provider: 'ipx',
+    screens: {
+      sm: 320,
+      md: 640,
+      lg: 1024,
+    },
+    presets: {
+      responsive: {
+        modifiers: {
+          widths: [320, 640, 1024],
+          format: 'webp',
+          densities: [1],
+        },
+        sizes: '(max-width: 320px) 100vw, (max-width: 640px) 100vw, 1024px',
+      },
+      logo: {
+        modifiers: {
+          format: 'webp',
+        },
+      },
+    },
+  },
+  /* image: {
+    provider: 'ipx',
+    dir: 'assets/imgs-opt/',
     screens: {
       sm: 320,
       md: 640,
@@ -89,7 +113,7 @@ export default defineNuxtConfig({
         sizes: '100vw sm:320px md:640px lg:1024px',
       },
     },
-  },
+  },*/
 
   // -----------------------------------------
   // 🎨 Vite (SCSS + Image Optimizer)

@@ -84,7 +84,7 @@ const navLinks = [
 
 <style lang="scss">
 header,footer{background-color: $snow-white !important;
-  background-image: url("/public/imgs/eagle/bg-white.png") !important;
+  background-image: url("/bg-white.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -97,13 +97,13 @@ span.v-btn__content
 }
 .v-list-item-title{
   font-size: clamp(2rem, 2.6vw + 1rem, 3.5rem) !important;
-  line-height: normal;
+  line-height: normal !important;
 }
 
 nav.v-navigation-drawer--active {
   width: 100% !important;
   //max-width: 100% !important;
-   background-image: url("/public/imgs/eagle/bg-white.png") !important;
+   background-image: url("bg-white.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;

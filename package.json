@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "img:opt": "node scripts/optimize-images.js"
+    "img:opt": "node scripts/optimize-single.js"
   },
   "dependencies": {
     "@img/sharp-win32-x64": "^0.34.5",

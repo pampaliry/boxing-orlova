@@ -18,7 +18,7 @@ h1{color: $snow-white;
 
 .hero {
   background-color: $fury-red;
-  background-image: url("/public/imgs/eagle/bg-red.png");
+  background-image: url("/bg-red.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

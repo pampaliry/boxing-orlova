@@ -1,5 +1,13 @@
 <template>
-    <NuxtImg id="logo"  src="logo-top-trans/logo-top-trans.webp" preset="responsive"  alt="logo"/>
+    <NuxtImg 
+    id="logo"  
+    src="/logo-top-trans.webp" 
+    preset="logo"  
+    alt="logo"
+
+    width="200"
+    height="200"
+    />
 </template>
 
 <style scoped>
