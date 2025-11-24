@@ -2,6 +2,10 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import vuetify from 'vite-plugin-vuetify';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const rootDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
   // -----------------------------------------
@@ -73,7 +77,18 @@ export default defineNuxtConfig({
   // -----------------------------------------
   // 🖼️ Nuxt Image CONFIG (TS fixnutý cez *.d.ts)
   // -----------------------------------------
+  image: {
+    provider: 'ipx',
+    presets: {
+      logo: {
+        modifiers: {
+          f: 'webp',
+        },
+      },
+    },
+  },
 
+  /*
   image: {
     provider: 'ipx',
 
@@ -85,43 +100,26 @@ export default defineNuxtConfig({
 
     ipx: {
       fs: {
-        dir: [process.cwd() + '/.output/public', process.cwd() + '/public'],
+        dir: [join(rootDir, 'public'), join(rootDir, '.output/public')],
       },
     },
     presets: {
       responsive: {
         modifiers: {
-          widths: [320, 640, 1024],
+          // widths: [320, 640, 1024],
           format: 'webp',
-          densities: [1],
+          //  densities: [1],
         },
-        sizes: '(max-width: 320px) 100vw, (max-width: 640px) 100vw, 1024px',
+        // sizes: '(max-width: 320px) 100vw, (max-width: 640px) 100vw, 1024px',
       },
       logo: {
         modifiers: {
-          format: 'webp',
+          f: 'webp',
         },
       },
     },
   },
-  /* image: {
-    provider: 'ipx',
-    dir: 'assets/imgs-opt/',
-    screens: {
-      sm: 320,
-      md: 640,
-      lg: 1024,
-    },
-    presets: {
-      responsive: {
-        modifiers: {
-          format: 'webp',
-        },
-        sizes: '100vw sm:320px md:640px lg:1024px',
-      },
-    },
-  },*/
-
+*/
   // -----------------------------------------
   // 🎨 Vite (SCSS + Image Optimizer)
   // -----------------------------------------
