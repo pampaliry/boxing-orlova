@@ -76,10 +76,17 @@ export default defineNuxtConfig({
 
   image: {
     provider: 'ipx',
+
     screens: {
       sm: 320,
       md: 640,
       lg: 1024,
+    },
+
+    ipx: {
+      fs: {
+        dir: [process.cwd() + '/.output/public', process.cwd() + '/public'],
+      },
     },
     presets: {
       responsive: {
