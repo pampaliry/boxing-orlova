@@ -414,7 +414,7 @@ const imageOptions = {
     ]
   },
   providers: {
-    ["ipx"]: { provider: ipxRuntime$Mv8S5HLubG4rnj1c7dCJ29DYTp7JqpVqczZZ0IbOhdY, defaults: {} }
+    ["ipx"]: { provider: ipxRuntime$Mv8S5HLubG4rnj1c7dCJ29DYTp7JqpVqczZZ0IbOhdY, defaults: { "fs": { "dir": ["D:\\development\\node-fe\\boxing-orlova/.output/public", "D:\\development\\node-fe\\boxing-orlova/public"] } } }
   }
 };
 const useImage = (event) => {
@@ -1490,4 +1490,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-BhMxbGel.mjs.map
+//# sourceMappingURL=default-D12x5kzC.mjs.map
