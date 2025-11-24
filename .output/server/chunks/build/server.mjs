@@ -31982,7 +31982,7 @@ const plugins = [
   vuetify_hjFy4UiBVKu2U8_BW9ggkFzfvErKr3wFgTHpa6TF5Ds
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-D12x5kzC.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-rV5ul6rI.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent$1({
   name: "LayoutLoader",
