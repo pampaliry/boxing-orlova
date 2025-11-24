@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   css: [
     'vuetify/styles',
     '@mdi/font/css/materialdesignicons.css',
-    '@/assets/styles/main.scss', // ← TOTO je kľúčové
+    '@/assets/styles/main.scss',
   ],
 
   build: {
@@ -71,7 +71,28 @@ export default defineNuxtConfig({
   ],
 
   // -----------------------------------------
-  // 🎨 Vite SCSS Global Variables
+  // 🖼️ Nuxt Image CONFIG (TS fixnutý cez *.d.ts)
+  // -----------------------------------------
+  image: {
+    //provider: 'static',
+    dir: 'public',
+    screens: {
+      sm: 320,
+      md: 640,
+      lg: 1024,
+    },
+    presets: {
+      responsive: {
+        modifiers: {
+          format: 'webp',
+        },
+        sizes: '100vw sm:320px md:640px lg:1024px',
+      },
+    },
+  },
+
+  // -----------------------------------------
+  // 🎨 Vite (SCSS + Image Optimizer)
   // -----------------------------------------
   vite: {
     css: {
@@ -83,21 +104,11 @@ export default defineNuxtConfig({
     },
     plugins: [
       ViteImageOptimizer({
-        png: {
-          quality: 80,
-        },
-        jpeg: {
-          quality: 80,
-        },
-        webp: {
-          quality: 75,
-        },
-        avif: {
-          quality: 50,
-        },
-        svg: {
-          multipass: true,
-        },
+        png: { quality: 80 },
+        jpeg: { quality: 80 },
+        webp: { quality: 75 },
+        avif: { quality: 50 },
+        svg: { multipass: true },
       }),
     ],
   },
@@ -164,11 +175,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'cs' },
-
       title: 'Boxing Orlová – Bojové sporty pro děti, mládež i dospělé',
-
       link: [{ rel: 'canonical', href: 'https://boxing-orlova.mm-smart.eu/' }],
-
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -178,7 +186,6 @@ export default defineNuxtConfig({
           content:
             'Oficiální klub bojových umění v Orlové. Tréninky boxu a MMA pro děti, mládež i dospělé.',
         },
-
         // OG
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://boxing-orlova.mm-smart.eu/' },
@@ -192,19 +199,7 @@ export default defineNuxtConfig({
           property: 'og:image',
           content: 'https://boxing-orlova.mm-smart.eu/social-preview.jpg',
         },
-
-        // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Boxing Orlová – Klub Boxu a MMA' },
-        {
-          name: 'twitter:description',
-          content:
-            'Tréninky boxu a MMA v Orlové. Profesionální vedení, kondice, technika, sparingy.',
-        },
-        {
-          name: 'twitter:image',
-          content: 'https://boxing-orlova.mm-smart.eu/social-preview.jpg',
-        },
       ],
     },
   },

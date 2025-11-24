@@ -1,5 +1,5 @@
 <template>
-    <NuxtImg id="logo" src="/imgs/eagle/logo-top-trans.png"  alt="logo"/>
+    <NuxtImg id="logo"  src="logo-top-trans/logo-top-trans.webp" preset="responsive"  alt="logo"/>
 </template>
 
 <style scoped>

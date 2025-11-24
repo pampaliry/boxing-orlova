@@ -76,8 +76,8 @@ import { ref } from 'vue'
 const drawer = ref(false)
 
 const navLinks = [
-  { name: 'Domov', path: '/' },
-  { name: 'Projekty', path: '/projects' },
+  { name: 'O nás', path: '/' },
+  { name: 'Tréningy', path: '/trainings' },
   { name: 'Kontakt', path: '/contact' },
 ]
 </script>
