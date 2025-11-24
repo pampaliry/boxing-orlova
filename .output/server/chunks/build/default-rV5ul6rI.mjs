@@ -374,31 +374,17 @@ const imageOptions = {
   ...{
     "screens": {
       "xs": 320,
-      "sm": 320,
-      "md": 640,
+      "sm": 640,
+      "md": 768,
       "lg": 1024,
       "xl": 1280,
       "xxl": 1536,
       "2xl": 1536
     },
     "presets": {
-      "responsive": {
-        "modifiers": {
-          "widths": [
-            320,
-            640,
-            1024
-          ],
-          "format": "webp",
-          "densities": [
-            1
-          ]
-        },
-        "sizes": "(max-width: 320px) 100vw, (max-width: 640px) 100vw, 1024px"
-      },
       "logo": {
         "modifiers": {
-          "format": "webp"
+          "f": "webp"
         }
       }
     },
@@ -414,7 +400,7 @@ const imageOptions = {
     ]
   },
   providers: {
-    ["ipx"]: { provider: ipxRuntime$Mv8S5HLubG4rnj1c7dCJ29DYTp7JqpVqczZZ0IbOhdY, defaults: { "fs": { "dir": ["D:\\development\\node-fe\\boxing-orlova/.output/public", "D:\\development\\node-fe\\boxing-orlova/public"] } } }
+    ["ipx"]: { provider: ipxRuntime$Mv8S5HLubG4rnj1c7dCJ29DYTp7JqpVqczZZ0IbOhdY, defaults: {} }
   }
 };
 const useImage = (event) => {
@@ -1490,4 +1476,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=default-D12x5kzC.mjs.map
+//# sourceMappingURL=default-rV5ul6rI.mjs.map
