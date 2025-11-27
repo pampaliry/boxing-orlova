@@ -20,6 +20,40 @@
 
     <!-- CONTENT -->
     <div class="content">
+      
+      <picture >
+  <!-- Desktop 1024+ -->
+  <source 
+    media="(min-width: 1024px)"
+    srcset="/imgs/optimized/logo-transparent-top/logo-transparent-top-1024.webp"
+    type="image/webp"
+  />
+
+  <!-- Tablet 640+ -->
+  <source 
+    media="(min-width: 640px)"
+    srcset="/imgs/optimized/logo-transparent-top/logo-transparent-top-640.webp"
+    type="image/webp"
+  />
+
+  <!-- Mobile 320+ -->
+  <source 
+    media="(min-width: 320px)"
+    srcset="/imgs/optimized/logo-transparent-top/logo-transparent-top-320.webp"
+    type="image/webp"
+  />
+
+  <!-- Fallback (default) -->
+  <img 
+    src="/imgs/optimized/logo-transparent-top/logo-transparent-top.webp"
+    alt="Logo Box Club Orlová"
+    class="logo"
+    width="400"
+    height="400"
+    loading="lazy"
+    decoding="async"
+  />
+      </picture>
       <h1>Boxing Club Orlová</h1>
       <p class="subtitle">
         Nemusíš být nejlepší. Stačí být lepší než včera.
@@ -119,6 +153,12 @@
   .cta {
     font-weight: 700;
     border-width: 2px;
+  }
+  .cta:hover {
+    background-color: $snow-white;
+    *{
+      color: $fury-red;
+    }
   }
 }
 
