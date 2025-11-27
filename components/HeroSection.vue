@@ -1,87 +1,136 @@
 <script setup>
-import { useVideos } from '~/composables/useVideos'
-
-const { videos } = useVideos()
 </script>
 
 <template>
- <section>
-  <v-container class="py-16 hero" fluid>
-          <v-row justify="center">
-            <v-col cols="10" lg="8" class="">
-                <h1>Bojové sporty pro děti, mládež i dospělé</h1>        
-            </v-col>
-          </v-row>
-          <v-row justify="end">
-            <v-col cols="10" >
-              <div class="placeholder"></div>
-                <picture >
-  <!-- Desktop 1024+ -->
-                <source 
-                  media="(min-width: 1024px)"
-                  srcset="/imgs/optimized/orol-transparent-bg/orol-transparent-bg-1024.webp"
-                  type="image/webp"
-                />
+  <section class="hero-video-section overlay">
 
-                <!-- Tablet 640+ -->
-                <source 
-                  media="(min-width: 640px)"
-                  srcset="/imgs/optimized/orol-transparent-bg/orol-transparent-bg-640.webp"
-                  type="image/webp"
-                />
+    <!-- VIDEO BACKGROUND -->
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="/videos/orlova.mp4" type="video/mp4" />
+    </video>
 
-                <!-- Mobile 320+ -->
-                <source 
-                  media="(min-width: 320px)"
-                  srcset="/imgs/optimized/orol-transparent-bg/orol-transparent-bg-320.webp"
-                  type="image/webp"
-                />
+    <!-- DARK  OVERLAY -->
+    <div class="overlay"></div>
 
-                <!-- Fallback (default) -->
-                <img 
-                  src="/imgs/optimized/orol-transparent-bg/orol-transparent-bg.webp"
-                  alt="mascot"
-                  class="mascot-image"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                  decoding="async"
-                />
-                </picture>
-            </v-col>
-          </v-row>
-        <v-row justify="center" class="">
-          <v-col cols="10" class="text-center">
-            <h2>Podívejte se na naše tréninky v akci</h2>
-             <VideoPlayer :videos="videos" />
-          </v-col>
-        </v-row>
-         
-        </v-container>       
- </section>
+    <!-- CONTENT -->
+    <div class="content">
+      <h1>Boxing Club Orlová</h1>
+      <p class="subtitle">
+        Nemusíš být nejlepší. Stačí být lepší než včera.
+      </p>
+
+      <v-row justify="center" class="mb-4">
+        <v-col cols="6" class="d-flex justify-end">
+          <v-btn
+        color="white"
+        variant="outlined"
+        class="cta"
+        size="large"
+        to="/contact"
+      >
+        Zeptej se
+      </v-btn>
+        </v-col>
+
+        <v-col cols="6" class="d-flex justify-start">
+        <v-btn
+        color="white"
+        variant="outlined"
+        class="cta"
+        size="large"
+        to="/trainings"
+      >
+        Koukni Rozpis
+      </v-btn>
+        </v-col>
+      </v-row>
+    </div>
+
+  </section>
 </template>
 
-
 <style scoped lang="scss">
-.hero {
-  background-color: $fury-red;
-  background-image: url("/imgs/optimized/bg-red/bg-red.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero-video-section {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  .mascot-image {
-    display: flex;
-    justify-content: end;
-    align-items: end;
-   // margin: 2rem auto 0 auto;
-    max-width: 100%;
-    height: auto;
-   // border-bottom: $ash-gray 2px solid;
-  }
-  .placeholder {
-    display: block;
-    height: 8vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FIX FOR VERTICAL VIDEO (INSTAGRAM REELS) */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+
+  /* Extra stretch for vertical videos */
+  /* (násobne lepšie využíva priestor pri Reels videách) */
+  @media (min-aspect-ratio: 4/3) {
+    transform: translate(-50%, -50%) scale(1.25);
   }
 }
+
+/* DARK-RED OVERLAY (FURY-RED SHADE) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  //background-image: url("/imgs/optimized/bg-red/bg-red-webp.webp");
+  background: rgba(49, 41, 41, 0.829); /* priesvitná fury-red */
+  z-index: 2;
+  height: 100%;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    font-weight: 700;
+    border-width: 2px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+
 </style>
