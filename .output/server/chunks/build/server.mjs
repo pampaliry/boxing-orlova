@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent as defineComponent$1, ref, shallowRef, watch, inject as inject$1, h, Suspense, hasInjectionContext, getCurrentInstance as getCurrentInstance$1, provide, shallowReactive, Fragment, nextTick, createElementBlock, cloneVNode, defineAsyncComponent, createVNode, Transition, mergeProps, toRefs, computed, toRef, watchEffect, normalizeStyle, normalizeClass, createElementVNode, useId, onScopeDispose, withDirectives, vShow, toDisplayString, reactive, createTextVNode, capitalize, readonly, toRaw, unref, createApp, TransitionGroup, camelize, isRef, toValue, resolveDynamicComponent, Text, markRaw, resolveComponent, render as render$1, onErrorCaptured, onServerPrefetch, effectScope, isReadonly, isShallow, isReactive, warn, isProxy, getCurrentScope, withCtx, vModelText, Teleport, withModifiers, isVNode, Comment, normalizeProps, guardReactiveProps, useSSRContext } from 'vue';
-import { n as createError$1, q as klona, v as defuFn, w as hasProtocol, x as isScriptProtocol, y as joinURL, z as withQuery, A as sanitizeStatusCode, B as getContext, C as defu, D as withLeadingSlash, E as parseURL, $ as $fetch$1, F as baseURL, G as createHooks, H as executeAsync, I as encodeParam, J as encodePath, K as toRouteMatcher, L as createRouter$1 } from '../_/nitro.mjs';
+import { n as createError$1, q as klona, v as defuFn, w as hasProtocol, x as isScriptProtocol, y as joinURL, z as withQuery, A as sanitizeStatusCode, B as getContext, $ as $fetch$1, C as baseURL, D as createHooks, E as executeAsync, F as toRouteMatcher, G as createRouter$1, H as defu, I as withLeadingSlash, J as parseURL, K as encodeParam, L as encodePath } from '../_/nitro.mjs';
 import { RouterView, useRoute as useRoute$2, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
 import { u as useHead$1, h as headSymbol } from '../routes/renderer.mjs';
@@ -391,7 +391,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-CTD937fJ.mjs')
+    component: () => import('./index-sXqwD9It.mjs')
   },
   {
     name: "contact",
@@ -1189,11 +1189,6 @@ function parseSizes(input) {
     Object.assign(sizes, input);
   }
   return sizes;
-}
-function prerenderStaticImages(src = "", srcset = "", event) {
-  {
-    return;
-  }
 }
 function createImage(globalOptions) {
   const ctx = {
@@ -32380,7 +32375,7 @@ const plugins = [
   vuetify_hjFy4UiBVKu2U8_BW9ggkFzfvErKr3wFgTHpa6TF5Ds
 ];
 const layouts = {
-  default: defineAsyncComponent(() => import('./default-DbhPk-W6.mjs').then((m) => m.default || m))
+  default: defineAsyncComponent(() => import('./default-BZIyr3Fq.mjs').then((m) => m.default || m))
 };
 const LayoutLoader = defineComponent$1({
   name: "LayoutLoader",
@@ -32738,5 +32733,5 @@ let entry;
 }
 const entry_default = (ssrContext) => entry(ssrContext);
 
-export { Icon as I, _export_sfc as _, useRouter$1 as a, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry_default as default, asyncDataDefaults as e, createError as f, useAppConfig as g, getIcon as h, useImage as i, prerenderStaticImages as j, useRequestEvent as k, loadIcon as l, __nuxt_component_1 as m, navigateTo as n, parseSize as p, resolveRouteObject as r, useHead as u };
+export { Icon as I, _export_sfc as _, useRouter$1 as a, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry_default as default, asyncDataDefaults as e, createError as f, useAppConfig as g, getIcon as h, __nuxt_component_1 as i, loadIcon as l, navigateTo as n, resolveRouteObject as r, useHead as u };
 //# sourceMappingURL=server.mjs.map
