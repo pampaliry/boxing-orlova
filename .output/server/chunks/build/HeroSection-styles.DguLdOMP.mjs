@@ -1,8 +1,0 @@
-const HeroSection_vue_vue_type_style_index_0_scoped_301467b9_lang = ".hero-video-section[data-v-301467b9]{align-items:center;display:flex;height:100vh;justify-content:center;overflow:hidden;position:relative;width:100%}.hero-video[data-v-301467b9]{height:100vh;left:50%;-o-object-fit:cover;object-fit:cover;-o-object-position:center top;object-position:center top;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%;z-index:1}@media(min-aspect-ratio:4/3){.hero-video[data-v-301467b9]{transform:translate(-50%,-50%) scale(1.25)}}.overlay[data-v-301467b9]{background:#312929d3;height:100%;inset:0;position:absolute;z-index:2}.content[data-v-301467b9]{color:#fff;padding:0 1rem;position:relative;text-align:center;z-index:3}.content h1[data-v-301467b9]{font-size:3rem;font-weight:900;margin-bottom:1rem;text-transform:uppercase}.content .subtitle[data-v-301467b9]{font-size:1.25rem;margin-bottom:2rem;opacity:.9}.content .cta[data-v-301467b9]{border-width:2px;font-weight:700}@media(max-width:640px){.content h1[data-v-301467b9]{font-size:2rem}.subtitle[data-v-301467b9]{font-size:1rem}}";
-
-const HeroSectionStyles_DguLdOMP = [
-  HeroSection_vue_vue_type_style_index_0_scoped_301467b9_lang
-];
-
-export { HeroSectionStyles_DguLdOMP as default };
-//# sourceMappingURL=HeroSection-styles.DguLdOMP.mjs.map

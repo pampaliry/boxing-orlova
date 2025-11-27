@@ -22,12 +22,16 @@ import 'unhead/utils';
 import 'unhead/plugins';
 
 const _imports_0 = publicAssetsURL("/videos/orlova.mp4");
+const _imports_1 = publicAssetsURL("/imgs/optimized/logo-transparent-top/logo-transparent-top-1024.webp");
+const _imports_2 = publicAssetsURL("/imgs/optimized/logo-transparent-top/logo-transparent-top-640.webp");
+const _imports_3 = publicAssetsURL("/imgs/optimized/logo-transparent-top/logo-transparent-top-320.webp");
+const _imports_4 = publicAssetsURL("/imgs/optimized/logo-transparent-top/logo-transparent-top.webp");
 const _sfc_main$1 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   const _component_v_row = resolveComponent("v-row");
   const _component_v_col = resolveComponent("v-col");
   const _component_v_btn = resolveComponent("v-btn");
-  _push(`<section${ssrRenderAttrs(mergeProps({ class: "hero-video-section overlay" }, _attrs))} data-v-301467b9><video class="hero-video" autoplay muted loop playsinline data-v-301467b9><source${ssrRenderAttr("src", _imports_0)} type="video/mp4" data-v-301467b9></video><div class="overlay" data-v-301467b9></div><div class="content" data-v-301467b9><h1 data-v-301467b9>Boxing Club Orlov\xE1</h1><p class="subtitle" data-v-301467b9> Nemus\xED\u0161 b\xFDt nejlep\u0161\xED. Sta\u010D\xED b\xFDt lep\u0161\xED ne\u017E v\u010Dera. </p>`);
+  _push(`<section${ssrRenderAttrs(mergeProps({ class: "hero-video-section overlay" }, _attrs))} data-v-e92f19a8><video class="hero-video" autoplay muted loop playsinline data-v-e92f19a8><source${ssrRenderAttr("src", _imports_0)} type="video/mp4" data-v-e92f19a8></video><div class="overlay" data-v-e92f19a8></div><div class="content" data-v-e92f19a8><picture data-v-e92f19a8><source media="(min-width: 1024px)"${ssrRenderAttr("srcset", _imports_1)} type="image/webp" data-v-e92f19a8><source media="(min-width: 640px)"${ssrRenderAttr("srcset", _imports_2)} type="image/webp" data-v-e92f19a8><source media="(min-width: 320px)"${ssrRenderAttr("srcset", _imports_3)} type="image/webp" data-v-e92f19a8><img${ssrRenderAttr("src", _imports_4)} alt="Logo Box Club Orlov\xE1" class="logo" width="400" height="400" loading="lazy" decoding="async" data-v-e92f19a8></picture><h1 data-v-e92f19a8>Boxing Club Orlov\xE1</h1><p class="subtitle" data-v-e92f19a8> Nemus\xED\u0161 b\xFDt nejlep\u0161\xED. Sta\u010D\xED b\xFDt lep\u0161\xED ne\u017E v\u010Dera. </p>`);
   _push(ssrRenderComponent(_component_v_row, {
     justify: "center",
     class: "mb-4"
@@ -175,7 +179,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/HeroSection.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-301467b9"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-e92f19a8"]]);
 const _sfc_main = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_HeroSection = __nuxt_component_0;
@@ -190,4 +194,4 @@ _sfc_main.setup = (props, ctx) => {
 const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
 export { index as default };
-//# sourceMappingURL=index-DIfNutRq.mjs.map
+//# sourceMappingURL=index-DOpZZ7Lw.mjs.map
