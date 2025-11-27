@@ -3,12 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm img:opt && nuxt build",
-    "dev": "pnpm img:opt && nuxt dev",
+    "build": "pnpm nuxt build",
+    "dev": "pnpm nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "img:opt": "node scripts/optimize-single.js"
+    "img:opt": "node scripts/optimize-images.js",
+    "lint": "eslint . --ext .js,.ts,.vue",
+    "lint:fix": "eslint . --ext .js,.ts,.vue --fix"
   },
   "dependencies": {
     "@img/sharp-win32-x64": "^0.34.5",
@@ -18,18 +20,27 @@
     "@nuxt/icon": "^1.15.0",
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/robots": "^5.5.6",
-    "eslint": "^9.39.1",
+    "jsdom": "^27.2.0",
     "nodemailer": "^7.0.10",
     "nuxt": "^3.20.1",
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/sitemap": "^7.4.7",
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^24.10.1",
     "@types/nodemailer": "^6.4.21",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
     "@vite-pwa/nuxt": "^1.0.7",
     "@vue/runtime-core": "^3.5.25",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^10.6.1",
     "globby": "^16.0.0",
+    "gym-nest": "link:/",
     "prettier": "^3.6.2",
     "sass": "^1.94.2",
     "sass-loader": "^16.0.6",
@@ -38,6 +49,7 @@
     "vite-plugin-image-optimizer": "^2.0.3",
     "vite-plugin-vuetify": "^2.1.2",
     "vue": "^3.5.25",
+    "vue-eslint-parser": "^10.2.0",
     "vuetify": "^3.10.11"
   },
   "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"

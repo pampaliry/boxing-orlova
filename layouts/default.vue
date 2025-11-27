@@ -84,7 +84,7 @@ const navLinks = [
 
 <style lang="scss">
 header,footer{background-color: $snow-white !important;
-  background-image: url("/bg-white.webp") !important;
+  background-image: url("/imgs/optimized/bg-white/bg-white.webp") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;

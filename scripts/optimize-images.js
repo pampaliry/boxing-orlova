@@ -8,7 +8,7 @@ function fixPath(p) {
 }
 
 const SOURCE_DIR = 'public/imgs/eagle';
-const OUT_DIR = 'public';
+const OUT_DIR = 'public/imgs/optimized';
 
 const SIZES = [320, 640, 1024];
 const FORMAT = 'webp';
