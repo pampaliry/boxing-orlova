@@ -14,7 +14,7 @@
       preload="auto"
       poster=""
     >
-      <source src="/videos/lengal.mp4" type="video/mp4" />
+      <source src="/videos/leng-small.mp4" type="video/mp4" />
     </video>
 
     <!-- DARK  OVERLAY -->
