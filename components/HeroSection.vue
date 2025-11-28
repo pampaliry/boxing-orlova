@@ -11,8 +11,10 @@
       muted
       loop
       playsinline
+      preload="auto"
+      poster=""
     >
-      <source src="/videos/orlova.mp4" type="video/mp4" />
+      <source src="/videos/lengal.mp4" type="video/mp4" />
     </video>
 
     <!-- DARK  OVERLAY -->
